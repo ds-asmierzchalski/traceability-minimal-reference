@@ -163,23 +163,21 @@ public class EdcSetup {
                 "@type": "odrl:Set",
                 "odrl:permission": {
                    "odrl:action": {
-                     "@id": "use"
-                   },
+                      "odrl:type": {
+                        "@id": "http://www.w3.org/ns/odrl/2/use"
+                      }
+                    },
                    "odrl:constraint": {
                      "odrl:and": [
                        {
-                         "odrl:leftOperand": {
-                           "@id": "cx-policy:FrameworkAgreement"
-                         },
+                         "odrl:leftOperand": "cx-policy:FrameworkAgreement",
                          "odrl:operator": {
                            "@id": "odrl:eq"
                          },
                          "odrl:rightOperand": "traceability:1.0"
                        },
                        {
-                         "odrl:leftOperand": {
-                           "@id": "cx-policy:UsagePurpose"
-                         },
+                         "odrl:leftOperand": "cx-policy:UsagePurpose",
                          "odrl:operator": {
                            "@id": "odrl:eq"
                          },
