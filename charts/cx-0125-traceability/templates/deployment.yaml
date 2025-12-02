@@ -43,6 +43,21 @@ spec:
             - name: http
               containerPort: {{ .Values.containerPort | default 8080 }}
               protocol: TCP
+          env:
+            - name: BASE_URL
+              value: {{ .Values.env.baseUrl | quote }}
+            - name: EDC_MANAGEMENT_URL
+              value: {{ .Values.env.edcManagementUrl | quote }}
+            - name: APP_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "cx-0125-traceability.fullname" . }}-secret
+                  key: appApiKey
+            - name: EDC_MANAGEMENT_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "cx-0125-traceability.fullname" . }}-secret
+                  key: edcManagementApiKey
           {{- with .Values.livenessProbe }}
           livenessProbe:
             {{- toYaml . | nindent 12 }}

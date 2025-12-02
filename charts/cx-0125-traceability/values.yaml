@@ -114,3 +114,11 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+env:
+  baseUrl: ""
+  edcManagementUrl: ""
+
+secrets:
+  appApiKey: "please-change-me"
+  edcManagementApiKey: ""
