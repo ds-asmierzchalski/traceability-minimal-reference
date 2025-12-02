@@ -154,40 +154,36 @@ public class EdcSetup {
       return """
             {
               "@context": {
-                "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
-                "odrl": "http://www.w3.org/ns/odrl/2/",
-                "cx-policy": "https://w3id.org/catenax/policy/"
+                "odrl": "http://www.w3.org/ns/odrl/2/"
               },
               "@id": "%s",
               "policy": {
                 "@type": "odrl:Set",
                 "odrl:permission": {
-                   "odrl:action": {
-                      "odrl:type": {
-                        "@id": "http://www.w3.org/ns/odrl/2/use"
+                  "odrl:action": {
+                    "odrl:type": {
+                      "@id": "http://www.w3.org/ns/odrl/2/use"
+                    }
+                  },
+                  "odrl:constraint": {
+                    "odrl:and": [
+                      {
+                        "odrl:leftOperand": "https://w3id.org/catenax/policy/FrameworkAgreement",
+                        "odrl:operator": {
+                          "@id": "odrl:eq"
+                        },
+                        "odrl:rightOperand": "DataExchangeGovernance:1.0"
+                      },
+                      {
+                        "odrl:leftOperand": "https://w3id.org/catenax/policy/UsagePurpose",
+                        "odrl:operator": {
+                          "@id": "odrl:eq"
+                        },
+                        "odrl:rightOperand": "cx.core.qualityNotifications:1"
                       }
-                    },
-                   "odrl:constraint": {
-                     "odrl:and": [
-                       {
-                         "odrl:leftOperand": "cx-policy:FrameworkAgreement",
-                         "odrl:operator": {
-                           "@id": "odrl:eq"
-                         },
-                         "odrl:rightOperand": "traceability:1.0"
-                       },
-                       {
-                         "odrl:leftOperand": "cx-policy:UsagePurpose",
-                         "odrl:operator": {
-                           "@id": "odrl:eq"
-                         },
-                         "odrl:rightOperand": "cx.core.industrycore:1"
-                       }
-                     ]
-                   }
-                 },
-                "prohibition": [],
-                "obligation": []
+                    ]
+                  }
+                }
               }
             }
             """.formatted(POLICY_ID);
