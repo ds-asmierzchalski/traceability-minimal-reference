@@ -141,7 +141,7 @@ public class EdcSetup {
                  },
               "description": "CAC test asset",
               "contenttype": "application/json",
-              "cx-common:version": "1.2"
+              "cx-common:version": "2.0"
              },
               "privateProperties": {
                 "header:X-API-KEY": "%s"
