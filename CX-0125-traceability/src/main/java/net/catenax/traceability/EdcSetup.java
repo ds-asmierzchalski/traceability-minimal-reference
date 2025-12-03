@@ -168,13 +168,6 @@ public class EdcSetup {
                   "odrl:constraint": {
                     "odrl:and": [
                       {
-                        "odrl:leftOperand": "https://w3id.org/catenax/policy/FrameworkAgreement",
-                        "odrl:operator": {
-                          "@id": "odrl:eq"
-                        },
-                        "odrl:rightOperand": "DataExchangeGovernance:1.0"
-                      },
-                      {
                         "odrl:leftOperand": "https://w3id.org/catenax/policy/UsagePurpose",
                         "odrl:operator": {
                           "@id": "odrl:eq"
